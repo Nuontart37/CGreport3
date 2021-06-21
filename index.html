@@ -37,10 +37,25 @@
 
 
     // テクスチャー読み込み
-   var textureLoader = new THREE.TextureLoader();  
+   var textureLoader = new THREE.TextureLoader(); 
+    
   var texture = textureLoader.load("stone.jpg");
   var mat = new THREE.MeshPhongMaterial();
   mat.map = texture;
+    
+    //地面のテクスチャ
+    var jimen = textureLoader.load("jimen.jpg");
+    var mat = new THREE.MeshLambertMaterial();
+    mat.map = jimen;
+    
+    // 平面を作成
+    var planeGeometry = new THREE.CircleGeometry(30,5);
+    var planeMaterial = new THREE.MeshBasicMaterial({color: 0x00ff00});
+    var plane = new THREE.Mesh(planeGeometry,planeMaterial);
+    G.receiveShadow = true;
+    plane.rotation.set( -Math.PI/2, 0, 0 );
+    plane.position.set(0,0,0);
+    scene.add(jimen)
   
   // バンプマップ読み込み
   var bump = textureLoader.load("stone-bump.jpg");
