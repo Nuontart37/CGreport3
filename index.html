@@ -52,7 +52,7 @@
     var planeGeometry = new THREE.CircleGeometry(30,5);
     var planeMaterial = new THREE.MeshBasicMaterial({color: 0x00ff00});
     var plane = new THREE.Mesh(planeGeometry,planeMaterial);
-    G.receiveShadow = true;
+    jimen.receiveShadow = true;
     plane.rotation.set( -Math.PI/2, 0, 0 );
     plane.position.set(0,0,0);
     scene.add(jimen)
