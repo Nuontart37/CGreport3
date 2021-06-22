@@ -51,7 +51,7 @@
     // 平面を作成
     var circleGeometry = new THREE.CircleGeometry(40,100);
     //var circleMaterial = new THREE.MeshBasicMaterial({color: 0x00ff00});
-    //var jimen = new THREE.Mesh(circleGeometry,circleMaterial);
+    var jimen = new THREE.Mesh(circleGeometry,circleMaterial);
     var box = new THREE.Mesh(geometry, mat2);
     jimen.receiveShadow = true;
     jimen.rotation.set( -Math.PI/2, 0, 0 );
