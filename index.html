@@ -31,7 +31,7 @@
      // カメラを作成
   const camera = new THREE.PerspectiveCamera(45, width / height); 
   // カメラの初期座標を設定
-  camera.position.set(0, 0, 7.5);
+  camera.position.set(0, 20, 20);
   // カメラコントローラーを作成
   const controls = new THREE.OrbitControls(camera,document.body);
 
@@ -50,9 +50,8 @@
     
     // 平面を作成
     var circleGeometry = new THREE.CircleGeometry(40,100);
-    var circleMaterial = new THREE.MeshBasicMaterial({color: 0x00ff00});
-    var jimen = new THREE.Mesh(circleGeometry,circleMaterial);
-    var box = new THREE.Mesh(geometry, mat2);
+    //var circleMaterial = new THREE.MeshBasicMaterial({color: 0x00ff00});
+    var jimen = new THREE.Mesh(circleGeometry,mat2);
     jimen.receiveShadow = true;
     jimen.rotation.set( -Math.PI/2, 0, 0 );
     jimen.position.set(0,0,0);
