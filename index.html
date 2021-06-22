@@ -45,13 +45,14 @@
     
   //地面のテクスチャ
   var jimen = textureLoader.load("jimen.jpg");
-  var mat = new THREE.MeshLambertMaterial();
-  mat.map = jimen;
+  var mat2 = new THREE.MeshLambertMaterial();
+  mat2.map = jimen;
     
     // 平面を作成
     var circleGeometry = new THREE.CircleGeometry(40,100);
-    var circleMaterial = new THREE.MeshBasicMaterial({color: 0x00ff00});
-    var jimen = new THREE.Mesh(circleGeometry,circleMaterial);
+    //var circleMaterial = new THREE.MeshBasicMaterial({color: 0x00ff00});
+    //var jimen = new THREE.Mesh(circleGeometry,circleMaterial);
+    var box = new THREE.Mesh(geometry, mat2);
     jimen.receiveShadow = true;
     jimen.rotation.set( -Math.PI/2, 0, 0 );
     jimen.position.set(0,0,0);
