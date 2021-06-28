@@ -39,12 +39,12 @@
     // テクスチャー読み込み
    var textureLoader = new THREE.TextureLoader(); 
     
-  var texture = textureLoader.load("stone.jpg");
+  var texture = textureLoader.load("iekabe.jpg");
   var mat = new THREE.MeshPhongMaterial();
   mat.map = texture;
     
   //地面のテクスチャ
-  var jimen = textureLoader.load("iekabe.jpg");
+  var jimen = textureLoader.load("asphalt.jpg");
   var mat2 = new THREE.MeshLambertMaterial();
   mat2.map = jimen;
     
