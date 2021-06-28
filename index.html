@@ -39,7 +39,7 @@
     // テクスチャー読み込み
    var textureLoader = new THREE.TextureLoader(); 
     
-  var texture = textureLoader.load("iekabe.jpg");
+  var texture = textureLoader.load("iekabe.png");
   var mat = new THREE.MeshPhongMaterial();
   mat.map = texture;
     
@@ -67,11 +67,11 @@
   //var material = new THREE.MeshPhongMaterial({ color: 0xffffff });
   //var box = new THREE.Mesh(geometry, material);
   var box = new THREE.Mesh(geometry, mat);
-  box.position.set(0,20,0)
+  box.position.set(0,17.5,0)
   scene.add(box);
     
   var box2 = new THREE.Mesh(geometry, mat);
-    box2.position.set(25,20,7);
+    box2.position.set(25,17.5,7);
     scene.add(box2);
 
     
