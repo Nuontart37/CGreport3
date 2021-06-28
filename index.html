@@ -34,14 +34,6 @@
   camera.position.set(0, 50, 150);
   // カメラコントローラーを作成
   const controls = new THREE.OrbitControls(camera,document.body);
-
-
-    // テクスチャー読み込み
-   var textureLoader = new THREE.TextureLoader(); 
-    
-  var texture = textureLoader.load("iekabe.png");
-  var mat = new THREE.MeshPhongMaterial();
-  mat.map = texture;
     
   //地面のテクスチャ
   var jimen = textureLoader.load("asphalt.jpg");
@@ -49,7 +41,7 @@
   mat2.map = jimen;
     
     // 平面を作成
-    var circleGeometry = new THREE.CircleGeometry(100,100);
+    var circleGeometry = new THREE.CircleGeometry(200,100);
     //var circleMaterial = new THREE.MeshBasicMaterial({color: 0x00ff00});
     var jimen = new THREE.Mesh(circleGeometry,mat2);
     jimen.receiveShadow = true;
@@ -57,6 +49,13 @@
     jimen.position.set(0,0,0);
     scene.add(jimen);
   
+     // テクスチャー読み込み
+   var textureLoader = new THREE.TextureLoader(); 
+    
+  var texture = textureLoader.load("iekabe.png");
+  var mat = new THREE.MeshPhongMaterial();
+  mat.map = texture;
+    
   // バンプマップ読み込み
   var bump = textureLoader.load("iekabe-bump.png");
   mat.bumpMap = bump;
@@ -71,7 +70,7 @@
   scene.add(box);
     
   var box2 = new THREE.Mesh(geometry, mat);
-    box2.position.set(25,17.5,7);
+    box2.position.set(25,17.5,0);
     scene.add(box2);
 
     
@@ -100,7 +99,7 @@
 
         const sprite0 = new THREE.Sprite(material0);
         sprite0.position.x = -15;
-        sprite0.position.y = 20;
+        sprite0.position.y = 10;
         sprite0.position.z = 0;
         sprite0.scale.set(20,20,20);
         scene.add(sprite0);
@@ -111,7 +110,7 @@
 
         const sprite1 = new THREE.Sprite(material1);
         sprite1.position.x = -35;
-        sprite1.position.y = 20;
+        sprite1.position.y = 10;
         sprite1.position.z = 0;
         sprite1.scale.set(20,20,20);
         scene.add(sprite1);
@@ -122,7 +121,7 @@
 
         const sprite2 = new THREE.Sprite(material2);
         sprite2.position.x = -25;
-        sprite2.position.y = 20;
+        sprite2.position.y = 10;
         sprite2.position.z = -15;
         sprite2.scale.set(20,20,20);
         scene.add(sprite2);
