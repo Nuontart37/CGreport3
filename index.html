@@ -28,23 +28,27 @@
     // シーンを作成
     var scene = new THREE.Scene();
   
-     // カメラを作成
-  const camera = new THREE.PerspectiveCamera(45, width / height); 
-  // カメラの初期座標を設定
-  camera.position.set(0, 50, 150);
-  // カメラコントローラーを作成
-  const controls = new THREE.OrbitControls(camera,document.body);
+    // カメラを作成
+    const camera = new THREE.PerspectiveCamera(45, width / height); 
+    // カメラの初期座標を設定
+    camera.position.set(0, 50, 150);
+    // カメラコントローラーを作成
+    const controls = new THREE.OrbitControls(camera,document.body);
     
-     // テクスチャー読み込み
-   var textureLoader = new THREE.TextureLoader(); 
-  var texture = textureLoader.load("iekabe.png");
-  var mat = new THREE.MeshPhongMaterial();
-  mat.map = texture;
+    // テクスチャー読み込み
+    var textureLoader = new THREE.TextureLoader(); 
+    var texture = textureLoader.load("iekabe.png");
+    var mat = new THREE.MeshPhongMaterial();
+    mat.map = texture;
     
-  //地面のテクスチャ
-  var jimen = textureLoader.load("asphalt.jpg");
-  var mat2 = new THREE.MeshLambertMaterial();
-  mat2.map = jimen;
+    //地面のテクスチャ
+    var jimen = textureLoader.load("asphalt.jpg");
+    var mat2 = new THREE.MeshLambertMaterial();
+    mat2.map = jimen;
+    
+    var tuti = textureLoader.load("tuti.png");
+    var mat3 = new THREE.MeshLambertMaterial();
+    mat3.map = tuti;
     
     // 平面を作成
     var circleGeometry = new THREE.CircleGeometry(100,4);
@@ -57,94 +61,97 @@
   
     
     
-  // バンプマップ読み込み
-  var bump = textureLoader.load("iekabe-bump.png");
-  mat.bumpMap = bump;
-  mat.bumpscale = 0.2;
+    // バンプマップ読み込み
+    var bump = textureLoader.load("iekabe-bump.png");
+    mat.bumpMap = bump;
+    mat.bumpscale = 0.2;
 
-  // 箱を作成
-  var geometry = new THREE.BoxGeometry(35, 35, 35);
-  //var material = new THREE.MeshPhongMaterial({ color: 0xffffff });
-  //var box = new THREE.Mesh(geometry, material);
-  var box = new THREE.Mesh(geometry, mat);
-  box.position.set(0,17.5,0)
-  scene.add(box);
+    // 箱を作成
+    var geometry = new THREE.BoxGeometry(35, 35, 35);
+    //var material = new THREE.MeshPhongMaterial({ color: 0xffffff });
+    //var box = new THREE.Mesh(geometry, material);
+    var box = new THREE.Mesh(geometry, mat);
+    box.position.set(0,17.5,0)
+    scene.add(box);
     
-  var box2 = new THREE.Mesh(geometry, mat);
-    box2.position.set(25,17.5,0);
+    var geometry2 = new THREE.BoxGeometry(35, 35, 70);
+    //var material = new THREE.MeshPhongMaterial({ color: 0xffffff });
+    //var box = new THREE.Mesh(geometry, material);  
+    var box2 = new THREE.Mesh(geometry2, mat3);
+    box2.position.set(-40,17.5,0);
     scene.add(box2);
 
     
-  // 平行光源1
-  var directionalLight1 = new THREE.DirectionalLight(0xffffff);
+    // 平行光源1
+    var directionalLight1 = new THREE.DirectionalLight(0xffffff);
     directionalLight1.position.set(1, 1, 1);
     // シーンに追加
     scene.add(directionalLight1);
     // 平行光源2
-        var directionalLight2 = new THREE.DirectionalLight(0xffffff);
+    var directionalLight2 = new THREE.DirectionalLight(0xffffff);
     directionalLight2.position.set(-1, 1, 1);
     // シーンに追加
     scene.add(directionalLight2);
     
-      // helper
-      const gridHelper = new THREE.GridHelper(200,50); // size, step
-      scene.add(gridHelper);
+    // helper
+    const gridHelper = new THREE.GridHelper(200,50); // size, step
+    scene.add(gridHelper);
 
-      const axisHelper = new THREE.AxisHelper(200,50);
-      scene.add(axisHelper);
-    
+    const axisHelper = new THREE.AxisHelper(200,50);
+    scene.add(axisHelper);
+   
     // 木0をスプライトで作成
-        var textureLoader = new THREE.TextureLoader();  
-        var texture0 = textureLoader.load("img/tree0.png");
-        const material0 = new THREE.SpriteMaterial({ map: texture0,});
+    var textureLoader = new THREE.TextureLoader();  
+    var texture0 = textureLoader.load("img/tree0.png");
+    const material0 = new THREE.SpriteMaterial({ map: texture0,});
 
-        const sprite0 = new THREE.Sprite(material0);
-        sprite0.position.x = -15;
-        sprite0.position.y = 10;
-        sprite0.position.z = 0;
-        sprite0.scale.set(20,20,20);
-        scene.add(sprite0);
+    const sprite0 = new THREE.Sprite(material0);
+    sprite0.position.x = -15;
+    sprite0.position.y = 45;
+    sprite0.position.z = 0;
+    sprite0.scale.set(20,20,20);
+    scene.add(sprite0);
 
-        // 木1をスプライトで作成 
-        var texture1 = textureLoader.load("img/tree1.png");
-        const material1 = new THREE.SpriteMaterial({ map: texture1,});
+    // 木1をスプライトで作成 
+    var texture1 = textureLoader.load("img/tree1.png");
+    const material1 = new THREE.SpriteMaterial({ map: texture1,});
 
-        const sprite1 = new THREE.Sprite(material1);
-        sprite1.position.x = -35;
-        sprite1.position.y = 10;
-        sprite1.position.z = 0;
-        sprite1.scale.set(20,20,20);
-        scene.add(sprite1);
+    const sprite1 = new THREE.Sprite(material1);
+    sprite1.position.x = -35;
+    sprite1.position.y = 45;
+    sprite1.position.z = 0;
+    sprite1.scale.set(20,20,20);
+    scene.add(sprite1);
 
-        // 木2をスプライトで作成 
-        var texture2 = textureLoader.load("img/tree2.png");
-        const material2 = new THREE.SpriteMaterial({ map: texture2,});
+    // 木2をスプライトで作成 
+    var texture2 = textureLoader.load("img/tree2.png");
+    const material2 = new THREE.SpriteMaterial({ map: texture2,});
 
-        const sprite2 = new THREE.Sprite(material2);
-        sprite2.position.x = -25;
-        sprite2.position.y = 10;
-        sprite2.position.z = -15;
-        sprite2.scale.set(20,20,20);
-        scene.add(sprite2);
+    const sprite2 = new THREE.Sprite(material2);
+    sprite2.position.x = -25;
+    sprite2.position.y = 45;
+    sprite2.position.z = -15;
+    sprite2.scale.set(20,20,20);
+    scene.add(sprite2);
 
     tick();
 
-// 毎フレーム時に実行されるループイベントです
-function tick() {
-   box.rotation.x += 0.00;
-   box.rotation.y += 0.00;
-   box2.rotation.x += 0.00;
-   box2.rotation.y += 0.00;
-  // レンダリング
-  renderer.render(scene, camera);
-  requestAnimationFrame(tick);
-}
-var update = function() {
+    // 毎フレーム時に実行されるループイベントです
+    function tick() {
+      box.rotation.x += 0.00;
+      box.rotation.y += 0.00;
+      box2.rotation.x += 0.00;
+      box2.rotation.y += 0.00;
+      // レンダリング
+      renderer.render(scene, camera);
+      requestAnimationFrame(tick);
+    }
+    var update = function() {
       requestAnimationFrame(update);
       renderer.render(scene, camera);
-};
+    };
     update();
-}
+  }
   window.addEventListener('DOMContentLoaded', init);
 </script>
 </body>
