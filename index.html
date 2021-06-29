@@ -109,6 +109,14 @@
     box6.position.set(30,1,0);
     scene.add(box6);
     
+    //球
+    var sphereGeometry = new THREE.SphereGeometry( 15, 32, 32 ); 
+    //半径、垂直方向の分割数、水平方向の分割数
+    var sphereMaterial = new THREE. MeshPhongMaterial( {color: 0xff0000,wireframe: true} );
+    var sphere = new THREE.Mesh( sphereGeometry, sphereMaterial );
+    sphere.position.set( 50, 50, 50 );
+    scene.add( sphere );
+    
     // 平行光源1
     var directionalLight1 = new THREE.DirectionalLight(0xffffff,0.9);
     directionalLight1.position.set(-100, 70, -100);
