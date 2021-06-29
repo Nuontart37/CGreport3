@@ -50,8 +50,12 @@
     var mat3 = new THREE.MeshLambertMaterial();
     mat3.map = tuti;
     
+    var gake = textureLoader.load("gake.jpg");
+    var mat4 = new THREE.MeshLambertMaterial();
+    mat4.map = gake;
+    
     // 平面を作成
-    var circleGeometry = new THREE.CircleGeometry(100,4);
+    var circleGeometry = new THREE.CircleGeometry(100,6);
     //var circleMaterial = new THREE.MeshBasicMaterial({color: 0x00ff00});
     var jimen = new THREE.Mesh(circleGeometry,mat2);
     jimen.receiveShadow = true;
@@ -80,7 +84,13 @@
     var box2 = new THREE.Mesh(geometry2, mat3);
     box2.position.set(-40,17.5,0);
     scene.add(box2);
-
+    
+    var geometry3 = new THREE.BoxGeometry(35, 7.5, 70);
+    //var material = new THREE.MeshPhongMaterial({ color: 0xffffff });
+    //var box = new THREE.Mesh(geometry, material);  
+    var box3 = new THREE.Mesh(geometry3, mat4);
+    box3.position.set(-40,7.5,0);
+    scene.add(box3);
     
     // 平行光源1
     var directionalLight1 = new THREE.DirectionalLight(0xffffff);
