@@ -37,6 +37,7 @@
     
     // テクスチャー読み込み
     var textureLoader = new THREE.TextureLoader(); 
+    
     var texture = textureLoader.load("iekabe.png");
     var mat = new THREE.MeshPhongMaterial();
     mat.map = texture;
@@ -63,13 +64,6 @@
     jimen.position.set(0,0,0);
     scene.add(jimen);
   
-    
-    
-    // バンプマップ読み込み
-    var bump = textureLoader.load("iekabe-bump.png");
-    mat.bumpMap = bump;
-    mat.bumpscale = 0.2;
-
     // 箱を作成
     var geometry = new THREE.BoxGeometry(35, 35, 35);
     //var material = new THREE.MeshPhongMaterial({ color: 0xffffff });
@@ -84,6 +78,11 @@
     var box2 = new THREE.Mesh(geometry2, mat3);
     box2.position.set(-45,20,0);
     scene.add(box2);
+    
+    // バンプマップ読み込み
+    var bump = textureLoader.load("gake-bump.jpg");
+    mat.bumpMap = bump;
+    mat.bumpscale = 0.2;
     
     var geometry3 = new THREE.BoxGeometry(45, 20, 100);
     //var material = new THREE.MeshPhongMaterial({ color: 0xffffff });
